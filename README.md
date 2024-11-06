@@ -1,8 +1,8 @@
-# Mario Kart: Super Circuit Asm Hack Template
-In order for this to work you need a real mksc rom ripped from a cartridge. The included one is just an empty file and will not work.
-You can read about gba assembly [here](https://gbadev.net/tonc/asm.html). For the specifics that you will need for asm *hacks* you can read about armips' syntax [here](https://github.com/Kingcom/armips/blob/master/Readme.md).
+# MK:SC Extra Characters
+In order for this to work you need a real mksc rom ripped from a cartridge named `mksc.gba` in the root of the repository.
+To build the project open a terminal in the downloaded folder and run `make`
 
-Armips is distributed under the terms of the MIT License:
+A modified version of Armips is distributed under the terms of the MIT License:
 ```
 The MIT License (MIT)
 
