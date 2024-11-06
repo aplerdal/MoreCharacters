@@ -1,3 +1,11 @@
+; Append graphics and other data
+; You must add the following for each custom character
+;	"@CHAR_NAME equ nextid" where next id is the next available number
+;	".incbin graphics/imagename_chr.bin" under charGfx:
+;	".incbin graphics/imagename_pal.bin" under "charPal:" (You must manually create palettes for star etc.)
+;	".word @RIVAL1, @RIVAL2, ..." under "rivalTable:" If you don't understand just copy the included example and change the last entry to @CHAR_NAME
+; You can optionally add your own handling table as well, but by default one is included for the next 8 characters.
+
 .autoregion
 .align 0x10
 
@@ -11,7 +19,7 @@
 @BOWSER	equ 7
 
 ; Custom
-@CUBE equ 8
+@CUBE	equ 8
 
 charGfx:
 .incbin "extracted/charGfx.bin"
