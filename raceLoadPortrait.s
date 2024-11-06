@@ -10,6 +10,8 @@
 	ldr	r4, =0x6001000		; VRAM Dest
 	ldr	r5, =0x3003B98+0x4c	; Character Ids
 	mov	r6, #0			; counter
+
+	; UNFINISHED
 @@Return:
 	pop	{r0-r7}
 	ldr	r1,[r0]
