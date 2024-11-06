@@ -15,10 +15,10 @@
 
 charGfx:
 .incbin "extracted/charGfx.bin"
-.incbin "graphics/kart.img.bin"
+.incbin "graphics/cube_chr.bin"
 charPal:
 .incbin "extracted/charPal.bin"
-.incbin "graphics/kart.pal.bin"
+.incbin "graphics/cube_pal.bin"
 
 rivalTable:
 .incbin "extracted/rivals.bin"
