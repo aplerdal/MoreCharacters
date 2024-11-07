@@ -20,7 +20,7 @@
 ;.org 0x0803C1D8 :: .byte 0x3F ; Top speed? Some handing stuff.
 ;.org 0x0803C20A :: .byte 0x3F ; Acceleration? 
 ;.org 0x0803C254 :: .byte 0x3F ; Friction? Kart is slidey without
-.org 0x0803C2B8 :: .byte 0x3F ; Something with turning. Maybe turn radius?
+;.org 0x0803C2B8 :: .byte 0x3F ; Something with turning. Maybe turn radius?
 .org 0x08049166 :: mov r3, #0x3f :: mov r8, r3 ; idk why this works but it does so I won't complain
 .org 0x080491B6 :: .byte 0x3F
 .org 0x08049294 :: .byte 0x3F

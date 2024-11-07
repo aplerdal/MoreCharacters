@@ -42,6 +42,8 @@ rivalTable:
 ; Add a new rival table for each new character. Last (8th) entry must be the number of the character you are adding.
 .word @MARIO, @LUIGI, @PEACH, @TOAD, @YOSHI, @DK, @WARIO, @CUBE
 
+; NOT ACTIVE
+
 handlingTable:
 .incbin "extracted/handling.bin"
 ; I don't know how handling works so I will just include it twice.
