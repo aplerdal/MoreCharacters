@@ -1,13 +1,12 @@
+ifeq ($(OS),Windows_NT)
+	EXE = .exe
+endif
+
 # Project name
 PROJECT = MoreCharacters
 
 MAIN_FILE = main.s
 ASM_FILES = $(wildcard *.s) $(wildcard *.asm)
-# Put data files like graphics here
-DATA_FILES = $(wildcard *.bin)
-
-GFX_FILES = $(wildcard graphics/*.png)
-GFX = $(patsubst %.png, %, $(GFX_FILES))
 
 PATCHED_ROM = $(PROJECT).gba
 
@@ -15,9 +14,28 @@ PATCHED_ROM = $(PROJECT).gba
 MGBA_PATH = "C:\Program Files\mGBA\mGBA.exe"
 
 # ARMIPS executable path
-ARMIPS = ./bin/armips
+ARMIPS = ./bin/armips$(EXE)
 # PTEXCONV path.
-PTEXCONV = ./bin/ptexconv
+PTEXCONV = ./bin/ptexconv$(EXE)
+
+# Graphics paths
+CHARS = $(wildcard graphics/*.def)
+
+LG_CHAR_GFX = $(patsubst %.def, %_char_lg.png, $(CHARS))
+LG_CHAR_BIN = $(patsubst %.png, %.bin, $(LG_CHAR_GFX))
+
+MD_CHAR_GFX = $(patsubst %.def, %_char_md.png, $(CHARS))
+MD_CHAR_BIN = $(patsubst %.png, %.bin, $(MD_CHAR_GFX))
+
+SM_CHAR_GFX = $(patsubst %.def, %_char_sm.png, $(CHARS))
+SM_CHAR_BIN = $(patsubst %.png, %.bin, $(SM_CHAR_GFX))
+
+CHAR_GFX = $(LG_CHAR_GFX) $(MD_CHAR_GFX) $(SM_CHAR_GFX)
+CHAR_BIN = $(LG_CHAR_BIN) $(MD_CHAR_BIN) $(SM_CHAR_BIN)
+
+#SM_ICON_RACE_GFX = $(patsubst %.def, %_icon_race_sm.png, $(CHARS))
+#SM_ICON_MENU_GFX = $(patsubst %.def, %_icon_menu_sm.png, $(CHARS))
+
 
 # Default rule to assemble the project
 all: $(PATCHED_ROM)
@@ -26,11 +44,11 @@ all: $(PATCHED_ROM)
 extract:
 	$(ARMIPS) extract.s
 
-$(GFX): $(GFX_FILES)
-	@echo $@
-	$(PTEXCONV) $@.png -o $(basename $@) -cn -ns -b 4 -p 1 -po 3
+$(CHAR_BIN): $(CHAR_GFX)
+	@echo build/gfx/$(notdir $@)
+	$(PTEXCONV) $(basename $@).png -o build/gfx/$(basename $(notdir $@)) -cn -ns -b 4 -p 1 -po 3
 
-$(PATCHED_ROM): $(ASM_FILES) $(DATA_FILES) extract $(GFX)
+$(PATCHED_ROM): $(ASM_FILES) $(DATA_FILES) extract $(CHAR_BIN)
 	$(ARMIPS) $(MAIN_FILE) -temp $(PROJECT).txt
 
 # Clean up generated files

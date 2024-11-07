@@ -8,8 +8,7 @@
 
 .include "expandIDs.s"
 
-.include "menuLoadChar.s"
-.include "raceLoadChar.s"
+.include "replaceChar.s"
 
 .include "data.s"
 

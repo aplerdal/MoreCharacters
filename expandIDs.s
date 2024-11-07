@@ -31,7 +31,7 @@
 .org 0x080507F8 :: .byte 0x3F
 .org 0x0803817E :: .byte 0x3F
 .org 0x080388B0 :: .byte 0x3F
-.org 0x0804149A :: .byte 0x3F
+.org 0x0804149A :: .byte 0x3F ; 10
 .org 0x080414F2 :: .byte 0x3F
 .org 0x08041520 :: .byte 0x3F
 .org 0x08041614 :: .byte 0x3F
@@ -41,10 +41,10 @@
 .org 0x0803BD80 :: .byte 0x3F
 .org 0x08041278 :: .byte 0x3F
 .org 0x08001C3C :: .byte 0x3F
-.org 0x0803AB98 :: .byte 0x3F
+.org 0x0803AB98 :: .byte 0x3F ; 20
 .org 0x0805AA34 :: .byte 0x3F
-.org 0x0805A934 :: .byte 0x3F
-.org 0x0801D312 :: .byte 0x3F
+;.org 0x0805A934 :: .byte 0x3F ; We don't override whatever table this loads so don't switch it.
+;.org 0x0801D312 :: .byte 0x3F ; We *should* override this, it loads icons, but we don't yet so ignore it.
 .org 0x0801E9E0 :: .byte 0x3F
 .org 0x0801DD7E :: .byte 0x3F
 .org 0x0801EDB6 :: .byte 0x3F

@@ -1,4 +1,5 @@
 /extracted/*.bin
+/build/gfx/*.bin
 
 *.gba
 *.txt
