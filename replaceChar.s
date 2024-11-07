@@ -41,7 +41,11 @@
 .org 0x802264c :: .word org(smallIconGfx)
 .org 0x802b5f8 :: .word org(smallIconGfx)
 
-.org 0x80D9794 :: .byte 0x08 ; To set luigi to load character 9 in game.
+; Menu Character table
+.org 0x80D9790
+.word 0	:: .word 8 :: .word 3 ; To set luigi to load character 9 in game.
+.word 6	::            .word 7
+.word 4	:: .word 5 :: .word 2
 
 .autoregion
 @GetCharGfx:
